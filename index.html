@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en" xmlns:filter="http://www.w3.org/1999/xhtml"
+      xmlns:background="http://www.w3.org/1999/xhtml"
+      xmlns:progid="http://www.w3.org/1999/xhtml" xmlns:UserName="http://www.w3.org/1999/xhtml"
+      xmlns:Nombre="http://www.w3.org/1999/xhtml" xmlns:Descripcion="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>ECAIB TWEET</title>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel = "stylesheet" href="Estilo.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</head>
+<body  ng-app="myApp" ng-controller="Controlador">
+
+
+<h1>ECAIB TWEET</h1>
+
+<p>Bienvenido a la nueva red social que revolucionara el mundo!!!!</p>
+
+
+    <input type="text" ng-model="user">
+    <input type="button" value="Login" ng-click="setUser()">
+
+<p></p>
+
+<p>UserName: {{ UserName }}</p>
+<p>Nombre: {{ Nombre.$value }}</p>
+<p>Descripcion: {{ Descripion.$value }}</p>
+<!--
+    <p><input UserName:{{UserName}} placeholder="User Name" disabled></p>
+    <p><input Nombre:{{Nombre.$value}} placeholder="Nombre"disabled></p>
+    <p><input Descripcion:{{Descripcion.$value}} placeholder="Descripcion"disabled></p>
+    -->
+
+
+<p></p>
+
+<p><input type="text" ng-model="userFolow">
+    <input type="button" value="Follow" ng-click="follow()"></p>
+
+<p>Users Followings: </p>
+
+<ul class="chatbox">
+    <li ng-repeat="follow in followings">{{ follow.idUser }}</li>
+</ul>
+
+
+
+<p>Users Feeds: </p>
+
+<ul class="chatbox">
+    <li ng-repeat="tweet in userTweets">{{ UserName }}: {{ tweet.text }}</li>
+</ul>
+
+<p><input type="text" ng-model="tweetTxt">
+    <input type="button" value="Tweet" ng-click="tweet()"></p>
+
+<a href="https://twitter.com/twitter" class="twitter-follow-button" data-show-count="false">Follow @twitter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+
+<!-- app -->
+<script src='app.js'></script>
+<!-- Controlador -->
+<script src='Controlador.js'></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
+</body>
+</html>
